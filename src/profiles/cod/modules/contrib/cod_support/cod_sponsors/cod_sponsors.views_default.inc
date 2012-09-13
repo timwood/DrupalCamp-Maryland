@@ -11,9 +11,10 @@ function cod_sponsors_views_default_views() {
   $view->name = 'Sponsors';
   $view->description = 'Sponsors';
   $view->tag = '';
+  $view->view_php = '';
   $view->base_table = 'node';
-  $view->core = 0;
-  $view->api_version = '2';
+  $view->is_cacheable = FALSE;
+  $view->api_version = 2;
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -996,9 +997,10 @@ function cod_sponsors_views_default_views() {
   $view->name = 'sponsors_admin';
   $view->description = 'Administrative view of sponsors';
   $view->tag = '';
+  $view->view_php = '';
   $view->base_table = 'node';
-  $view->core = 0;
-  $view->api_version = '2';
+  $view->is_cacheable = FALSE;
+  $view->api_version = 2;
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('filters', array(

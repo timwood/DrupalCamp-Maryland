@@ -3,27 +3,27 @@
 function views_bulk_operations_script_action_info() {
   if (!module_exists('actions_permissions') && !user_access('administer site configuration')) return array();
   return array('views_bulk_operations_script_action' => array(
-    'type' => 'system',
-    'description' => t('Execute arbitrary PHP script'),
+    'type' => 'entity',
+    'label' => t('Execute arbitrary PHP script'),
     'configurable' => TRUE,
-    'hooks' => array('any' => TRUE),
   ));
 }
 
-function views_bulk_operations_script_action(&$object, $context) {
+function views_bulk_operations_script_action($entity, $context) {
   if (!module_exists('actions_permissions') && !user_access('administer site configuration')) {
     global $user;
     $msg = 'An attempt to execute arbitrary PHP script action by user <a href="user/!uid">%user</a> was blocked because of lack of permission.';
     $arg = array('%user' => $user->name, '!uid' => $user->uid);
     drupal_set_message(t($msg, $arg), 'error', FALSE);
-    watchdog('vbo', $msg, $arg, WATCHDOG_ERROR);
+    watchdog('actions', $msg, $arg, WATCHDOG_ERROR);
     return;
   }
   $return = eval($context['script']);
   if ($return === FALSE) {
     $msg = 'Error in script.';
     $arg = array();
-    if (function_exists('error_get_last') && ($error = error_get_last())) {
+    $error = error_get_last();
+    if ($error) {
       $msg = '!err in script: !msg in line \'%line\'.';
       $arg = array(
         '!msg' => $error['message'],
@@ -32,7 +32,7 @@ function views_bulk_operations_script_action(&$object, $context) {
       );
     }
     drupal_set_message(t($msg, $arg), 'error', FALSE);
-    watchdog('vbo', $msg, $arg, WATCHDOG_ERROR);
+    watchdog('actions', $msg, $arg, WATCHDOG_ERROR);
   }
 }
 
@@ -40,8 +40,8 @@ function views_bulk_operations_script_action_form($context) {
   $form['script'] = array(
     '#type' => 'textarea',
     '#title' => t('PHP script'),
-    '#description' => t('Type the PHP snippet that will run upon execution of this action. You can use variables <code>&$object</code> and <code>$context</code> in your snippet.
-                         Note that it is up to the script to save the object once it\'s done modifying it. Do NOT enclose the script within a &lt;?php&gt; tag.'),
+    '#description' => t('Type the PHP snippet that will run upon execution of this action. You can use variables <code>$entity</code> and <code>$context</code> in your snippet.
+                         Note that it is up to the script to save the $entity once it\'s done modifying it.'),
     '#default_value' => @$context['script'],
   );
   return $form;
@@ -67,7 +67,7 @@ function _views_bulk_operations_script_action_error_line($script, $line) {
 }
 
 function _views_bulk_operations_script_action_error_type($type) {
-  $types = array (
+  $types = array(
     E_ERROR              => 'Error',
     E_WARNING            => 'Warning',
     E_PARSE              => 'Parsing Error',
@@ -88,5 +88,6 @@ function _views_bulk_operations_script_action_error_type($type) {
       E_USER_DEPRECATED    => 'User Deprecated Notice',
     );
   }
+
   return t($types[$type]);
 }

@@ -24,11 +24,10 @@ function cod_sponsors_imagecache_default_presets() {
         '0' => array(
           'weight' => '0',
           'module' => 'imagecache',
-          'action' => 'imagecache_scale',
+          'action' => 'imagecache_scale_and_crop',
           'data' => array(
             'width' => '100',
             'height' => '',
-            'upscale' => 0,
           ),
         ),
       ),
@@ -39,11 +38,10 @@ function cod_sponsors_imagecache_default_presets() {
         '0' => array(
           'weight' => '0',
           'module' => 'imagecache',
-          'action' => 'imagecache_scale',
+          'action' => 'imagecache_scale_and_crop',
           'data' => array(
             'width' => '200',
             'height' => '',
-            'upscale' => 0,
           ),
         ),
       ),
@@ -54,11 +52,10 @@ function cod_sponsors_imagecache_default_presets() {
         '0' => array(
           'weight' => '0',
           'module' => 'imagecache',
-          'action' => 'imagecache_scale',
+          'action' => 'imagecache_scale_and_crop',
           'data' => array(
             'width' => '150',
             'height' => '',
-            'upscale' => 0,
           ),
         ),
       ),
@@ -69,11 +66,10 @@ function cod_sponsors_imagecache_default_presets() {
         '0' => array(
           'weight' => '0',
           'module' => 'imagecache',
-          'action' => 'imagecache_scale',
+          'action' => 'imagecache_scale_and_crop',
           'data' => array(
             'width' => '200',
             'height' => '',
-            'upscale' => 0,
           ),
         ),
       ),
@@ -84,11 +80,10 @@ function cod_sponsors_imagecache_default_presets() {
         '0' => array(
           'weight' => '0',
           'module' => 'imagecache',
-          'action' => 'imagecache_scale',
+          'action' => 'imagecache_scale_and_crop',
           'data' => array(
             'width' => '125',
             'height' => '',
-            'upscale' => 0,
           ),
         ),
       ),

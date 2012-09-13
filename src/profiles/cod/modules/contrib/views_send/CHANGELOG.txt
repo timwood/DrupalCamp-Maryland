@@ -1,20 +1,24 @@
+
+Views Send 7.x-1.x, xxxx-xx-xx
+------------------------------
+#1210758 by Sanjo: Incorrect detection of PHP maximum execution time almost exceeded.
+#1513822 by hansfn: Rules integration.
+#1462126 by hansfn: Indicate which selected rows contain invalid e-mail addresses.
+#1477828 by bojanz: Stop relying on VBO, implement a custom Views Form handler instead.
+#1462118 by cbergmann, hansfn: Preview not working.
+#1454740 by hansfn: 'send mass mail' appears in VBO Operations drop-down even if not allowed.
+#1466638 by cbergmann: Always fetch the view from the context.
+#1468120 by cbergmann: views_send_debug has no effect.
+#1462118 by Ben Coleman, hansfn: Trim all email addresses.
+#1455820 by hansfn: Improve handling of formats
+#1451594 by hansfn: Make field support more robust for the recipient's name/e-mail
+#1449988 by hansfn: Fix token replacement for fields.
+#1411976 by julien66, hansfn: Added carbon copy (to sender).
+#1408756 by hansfn: Pass the selected views row(s) to the action.
+#1052040 by hansfn: Port to Drupal 7.
+
 Views Send 6.x-1.x, xxxx-xx-xx
 ------------------------------
-
-Views Send 6.x-1.0-alpha2, 2012-06-29
-------------------------------
-#1630928 by hansfn: Only user email field works.
-
-Views Send 6.x-1.0-alpha1, 2012-06-13
-------------------------------
-#1294426 by hansfn: Remember these values next time always active.
-#1101616 by hansfn: Friendlier tokens.
-#971458 by hansfn: SQL error when installing. (Now fixing the forgotten "headers" column.)
-#971458 by Cyberwolf, hansfn: Execute Views Send programmatically with Rules (and VBO).
-#1468120 by cbergmann: views_send_debug has no effect.
-#1210758 by Sanjo: Incorrect detection of PHP maximum execution time almost exceeded.
-#1200584 by mradcliffe, hansfn: Emails from VBO not passing.
-#1207614 by rooby: There is no constant VIEWS_BULK_OPS_STEP_SINGLE.
 #1157616 by marktheshark: Changed Some spelling mistakes.
 #808518 by claudiu.cristea, sgabe: Added Split mail preparation from sending.
 #957126 by goose2000: Fixed Install error.

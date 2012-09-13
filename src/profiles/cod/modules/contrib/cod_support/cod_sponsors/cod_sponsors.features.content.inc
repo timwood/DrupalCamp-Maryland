@@ -17,11 +17,11 @@ function cod_sponsors_content_default_fields() {
         'format' => 'hidden',
       ),
       'teaser' => array(
-        'format' => 'product_imagelink',
+        'format' => 'image_plain',
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'product_imagelink',
+        'format' => 'image_plain',
         'exclude' => 0,
       ),
       '4' => array(

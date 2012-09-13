@@ -210,7 +210,8 @@ Drupal.flagCookie = function(name, value, options) {
   }
 };
 
-Drupal.behaviors.flagLink = function(context) {
+Drupal.behaviors.flagLink = {};
+Drupal.behaviors.flagLink.attach = function(context) {
   // For anonymous users with the page cache enabled, swap out links with their
   // current state for the user.
   if (Drupal.settings.flag && Drupal.settings.flag.templates) {
